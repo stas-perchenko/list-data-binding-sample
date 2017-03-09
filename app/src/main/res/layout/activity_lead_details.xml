@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <data>
+        <import type="android.text.TextUtils" alias="TU"/>
+        <import type="android.view.View" alias="V"/>
+        <import type="android.view.Gravity" alias="G"/>
+
+
+        <variable
+            name="model"
+            type="com.alperez.examples.databinding.lists.model.LeadModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:orientation="vertical"
+            android:background="@color/basic_background">
+
+
+            <FrameLayout
+                android:layout_width="@dimen/lead_details_profile_image"
+                android:layout_height="@dimen/lead_details_profile_image"
+                android:layout_marginTop="48dp"
+                android:layout_gravity="center_horizontal"
+                android:padding="1dp"
+                android:background="@drawable/bg_white_solid_circle">
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:background="@android:color/transparent"
+                    app:imageUrl="@{model.photoUrl}"
+                    app:drawable_fallback="@{@drawable/placeholder_user}" />
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/holo_red_dark"
+                android:padding="6dp"
+                app:leadDebugStatus="@{model}"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:minLines="1"
+                android:maxLines="2"
+                android:ellipsize="end"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:gravity="center_horizontal"
+                android:text="@{model.name}"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_gravity="center"
+
+                android:minLines="1"
+                android:maxLines="2"
+                android:ellipsize="end"
+                android:textSize="17sp"
+                android:textColor="#808080"
+                android:gravity="center_horizontal"
+                android:text="@{model.company}" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:padding="12dp"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:gravity="center_horizontal"
+                android:background="#C0C0C0"
+                app:leadStatusText="@{model}"/>
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:shrinkColumns="1"
+                android:stretchColumns="1" >
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        style="@style/DetailsTableItemTitle"
+                        android:text="@string/position_tag"/>
+
+                    <TextView
+                        style="@style/DetailsTableItemValue"
+                        app:leadOptPropertyValue="@{model.position}"
+                        app:leadOptPropertyBackup="@{@string/lead_property_not_defined}" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        style="@style/DetailsTableItemTitle"
+                        android:text="@string/phone_tag"/>
+
+                    <TextView
+                        style="@style/DetailsTableItemValue"
+                        app:leadOptPropertyValue="@{model.phone}"
+                        app:leadOptPropertyBackup="@{@string/lead_property_not_defined}" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        style="@style/DetailsTableItemTitle"
+                        android:text="@string/email_tag"/>
+
+                    <TextView
+                        style="@style/DetailsTableItemValue"
+                        app:leadOptPropertyValue="@{model.email}"
+                        app:leadOptPropertyBackup="@{@string/lead_property_not_defined}" />
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        style="@style/DetailsTableItemTitle"
+                        android:text="@string/facebook_tag"/>
+
+                    <TextView
+                        style="@style/DetailsTableItemValue"
+                        app:leadOptPropertyValue="@{model.facebookUrl}"
+                        app:leadOptPropertyBackup="@{@string/lead_property_not_defined}"/>
+                </TableRow>
+
+            </TableLayout>
+
+
+            <!--==========================  Qualification section  ==========================-->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:background="#454545"/>
+
+
+
+
+            <LinearLayout android:id="@+id/settingsContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="48dp"/>
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</layout>

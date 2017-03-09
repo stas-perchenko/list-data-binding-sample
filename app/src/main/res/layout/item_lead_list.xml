@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <data>
+        <import type="android.view.View" alias="v"/>
+        <import type="android.text.TextUtils" alias="TU"/>
+
+        <variable
+            name="lead"
+            type="com.alperez.examples.databinding.lists.model.LeadModel" />
+
+        <variable
+            name="callClicker"
+            type="android.view.View.OnClickListener" />
+        <variable
+            name="messageClicker"
+            type="android.view.View.OnClickListener" />
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+
+
+
+        <com.alperez.examples.databinding.lists.ui.widget.OnCircleBadgeHolderLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="0"
+            android:layout_margin="10dp"
+            app:container_size="@{@dimen/lead_list_item_image_size}"
+            app:badge_size="@{@dimen/lead_list_item_badge_size}">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                app:imageUrl="@{lead.photoUrl()}"
+                app:drawable_fallback="@{@drawable/placeholder_user}"/>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_gravity="right|bottom"
+                app:leadSyncStatusBadge="@{lead}"
+                android:background="@drawable/bg_lead_status_badge" />
+
+        </com.alperez.examples.databinding.lists.ui.widget.OnCircleBadgeHolderLayout>
+
+
+
+        <View
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_weight="0"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/qualif_hot_lead"
+            app:leadSyncStatusDot="@{lead}"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:layout_marginTop="20dp"
+                android:maxLines="1"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="@{lead.name()}"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:layout_marginTop="5dp"
+                android:maxLines="1"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="@{lead.company()}"/>
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="0"
+            android:layout_marginRight="10dp"
+            android:paddingTop="10dp">
+
+            <ImageButton
+                android:layout_width="@dimen/list_item_action_size"
+                android:layout_height="@dimen/list_item_action_size"
+                android:layout_marginBottom="4dp"
+                android:background="@color/actionbarOpacity"
+                android:src="@android:drawable/ic_menu_call"
+                android:visibility="@{TU.isEmpty(lead.phone()) ? v.GONE : v.VISIBLE}"
+                app:onClickListener="@{callClicker}"/>
+
+            <ImageButton
+                android:layout_width="@dimen/list_item_action_size"
+                android:layout_height="@dimen/list_item_action_size"
+                android:background="@color/actionbarOpacity"
+                android:src="@android:drawable/stat_notify_chat"
+                android:visibility="@{TU.isEmpty(lead.phone()) ? v.GONE : v.VISIBLE}"
+                app:onClickListener="@{messageClicker}" />
+
+        </LinearLayout>
+
+
+
+
+    </LinearLayout>
+
+
+</layout>
+
+
+
+
+

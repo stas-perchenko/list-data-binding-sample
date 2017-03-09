@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">List Data Binding</string>
+    <string name="about">This sample application demonstrate usage of the Data Binding library with a ListView\'s adapter.\nAuthor: S. Perchenko</string>
+
+
+    <string name="position_tag">Position:</string>
+    <string name="facebook_tag">Facebook:</string>
+    <string name="email_tag">Email:</string>
+    <string name="phone_tag">Phone:</string>
+
+
+    <string name="lead_status_saved">Lead Saved. Edit qualifications when necessary.</string>
+    <string name="lead_status_saved_local">Lead saved. Not all changes are synchronized with the backend yet. Yau still can edit qualifications when necessary.</string>
+    <string name="lead_status_saved_local_partial">Lead saved locally. Only badge data available at the moment. Edit qualifications when necessary. The changes will be synchronized with the backend later.</string>
+
+    <string name="lead_qualification">Lead qualification</string>
+    <string name="lead_property_not_defined">not defined</string>
+</resources>

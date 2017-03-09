@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="black">#000000</color>
+    <color name="actionbarOpacity">#33000000</color>
+
+    <color name="basic_background">#E2E2E2</color>
+
+
+    <color name="lead_ststus_ok">@color/colorPrimaryDark</color>
+    <color name="lead_ststus_not_synced">@android:color/holo_orange_dark</color>
+</resources>
